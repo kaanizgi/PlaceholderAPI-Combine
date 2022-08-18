@@ -5,12 +5,21 @@
 //  Created by Kaan İzgi on 18.08.2022.
 //
 
+
+
 import SwiftUI
 
 struct ContentView: View {
+    @StateObject private var vm = ViewModel()
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        List {
+            ForEach(vm.posts) { data in
+                VStack{
+                    Text(data.body)
+                    Text(data.title)
+                }
+            }
+        }
     }
 }
 
